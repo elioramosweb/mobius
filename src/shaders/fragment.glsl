@@ -30,9 +30,7 @@ vec3 colorPalette(int i) {
     colors[10] = vec3(0.812, 0.22,  0.584);
     colors[11] = vec3(0.427, 0.208, 0.541);
     colors[12] = vec3(0.024, 0.706, 0.69);
-    colors[13] = vec3(0.294, 0.541, 0.373); // default o fallback
-
-    // Clamp para evitar índices fuera de rango
+    colors[13] = vec3(0.294, 0.541, 0.373); 
     return colors[clamp(i, 0, 13)];
 }
 
