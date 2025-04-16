@@ -10,11 +10,16 @@ const root = ReactDOM.createRoot(document.querySelector('#root'))
 
 root.render(
   <React.StrictMode>
-    <Canvas camera={{ position: [0, 0, 4] }}>
-      <ambientLight />
-      {/* <axesHelper args={[5]} /> */}
-      <Scene />
-      <OrbitControls />
-    </Canvas>
+  <Canvas
+  camera={{ position: [0, 0, 4] }}
+  gl={{ antialias: true, alpha: false }}
+  onCreated={({ gl }) => {
+    gl.setClearColor('black') // ← fondo negro
+  }}
+>
+  <ambientLight />
+  <Scene />
+  <OrbitControls />
+</Canvas>
   </React.StrictMode>
 )
