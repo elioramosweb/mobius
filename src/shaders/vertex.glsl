@@ -4,7 +4,7 @@
     varying vec2 vUv;
     
     void main() {
-        vNormal = normal;
+        vNormal = normalize(normalMatrix * normal);
         vPosition = position;
         vUv = uv;
         vec3 newPosition = position;
