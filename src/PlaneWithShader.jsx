@@ -27,9 +27,9 @@ function espacioTiempo(u, t, target) {
   u *= Math.PI * 2.0
   t = (t - 0.5) * 2.0 // t ∈ [-1, 1]
 
-  const baseRadius = 0.05
+  const baseRadius = 0.02
   const coneSlope = 1.5
-  const t0 = 0.1 // mitad del tubo
+  const t0 = 0.15 // mitad del tubo
 
   // Transición suave con una curva de tipo sigmoide
   const smooth = Math.abs(t)
@@ -94,21 +94,48 @@ function copaVino(u, t, target) {
 
 
 export default function SphereWithShader() {
-  const shaderRef = useRef();
 
-  useFrame(({ clock }) => {
-    if (shaderRef.current) {
-      shaderRef.current.uniforms.uTime.value = clock.getElapsedTime()
-    }
-  })
+  // const meshRef = useRef()
+  // const shaderRef = useRef();
+
+  // useFrame(({ clock }) => {
+  //   if (shaderRef.current) {
+  //     shaderRef.current.uniforms.uTime.value = clock.getElapsedTime()
+  //   }
+  // })
+
+    // // Rotación continua en Y usando el tiempo del reloj
+    // useFrame((state) => {
+    //   if (meshRef.current) {
+    //     meshRef.current.rotation.y = state.clock.getElapsedTime() * 0.5 
+    //     meshRef.current.rotation.x = state.clock.getElapsedTime() * 0.5 
+    //   }
+    //   if (shaderRef.current) {
+    //     shaderRef.current.uniforms.uTime.value = state.clock.getElapsedTime()
+    //   }
+    // })
 
   function EspacioTiempo() {
+
+    const meshRef = useRef()
+    const shaderRef = useRef();
+  
+    useFrame((state) => {
+      if (meshRef.current) {
+        // meshRef.current.rotation.y = state.clock.getElapsedTime() * 0.1
+        // meshRef.current.rotation.x = state.clock.getElapsedTime() * 0.1 
+      }
+      if (shaderRef.current) {
+        shaderRef.current.uniforms.uTime.value = state.clock.getElapsedTime()
+      }
+    })
+
     const geometry = useMemo(() => {
       return new ParametricGeometry(espacioTiempo, 200, 20)
     }, [])
   
     return (
-      <mesh geometry={geometry}>
+      <mesh ref={meshRef} geometry={geometry}>
         <meshStandardMaterial color="orange" side={DoubleSide} />
         <shaderMaterial
         ref={shaderRef}
