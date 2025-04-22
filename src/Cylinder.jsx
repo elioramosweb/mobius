@@ -35,12 +35,12 @@ export default function Cylinder() {
     color="#ffffff"
     roughness={0}
     metalness={0}
-    transmission={1}    // Transparencia física
-    thickness={0.05}    // ← CRISTAL FINO: grosor pequeño
-    ior={1.45}          // Índice de refracción para vidrio fino
-    clearcoat={1}       // Reflejos suaves en la superficie
+    transmission={1}    
+    thickness={0.05}    
+    ior={1.45}          
+    clearcoat={1}       
     clearcoatRoughness={0}
-    reflectivity={0.5}  // Qué tanto refleja la luz (ajustable)
+    reflectivity={0.5}  
     side={DoubleSide}
     transparent={true}
   />
