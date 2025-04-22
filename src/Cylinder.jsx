@@ -40,7 +40,7 @@ export default function Cylinder() {
       ior={1.0}               // Índice de refracción como el aire para evitar distorsión
       clearcoat={1}
       clearcoatRoughness={0}
-      reflectivity={0.01}     // Bajo para no oscurecer
+      reflectivity={0.001}     // Bajo para no oscurecer
       side={DoubleSide}
       transparent={true}
     />

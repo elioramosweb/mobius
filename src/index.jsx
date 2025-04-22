@@ -3,19 +3,29 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { Canvas } from '@react-three/fiber'
 import Scene from './Scene'
-import { Environment, OrbitControls } from '@react-three/drei'
+import { Environment, OrbitControls,Stage } from '@react-three/drei'
 
 
 const root = ReactDOM.createRoot(document.querySelector('#root'))
 
+
 root.render(
   <React.StrictMode>
-  <Canvas camera={{ position: [0, 0, 2] }}>
-    <ambientLight intensity={0.5} />
-    <directionalLight position={[5, 5, 5]} intensity={1} />
-    <Environment files="./hdrs/empty_warehouse_01_4k.hdr" background={true} /> 
-    <Scene />
-    <OrbitControls />
-  </Canvas>
+    <Canvas
+      shadows
+      camera={{ position: [0, 1, 3], fov: 50 }}
+      gl={{ toneMappingExposure: 1.5 }}
+    >
+      {/* Stage reemplaza ambientLight, directionalLight y Environment */}
+      <Stage
+        environment="studio" // también puedes usar "warehouse", "sunset", etc.
+        intensity={1}
+        contactShadow={{ opacity: 0.4, blur: 2 }}
+        adjustCamera={false} // lo dejas en false si estás usando tu propia cámara
+      >
+      <Scene />
+      </Stage>
+      <OrbitControls />
+    </Canvas>
   </React.StrictMode>
 )

@@ -6,7 +6,7 @@
     void main() {
         vNormal = normalize(normalMatrix * normal);
         vPosition = position;
-        vUv = uv;
+        vUv = 0.5*uv;
         vec3 newPosition = position;
         gl_Position = projectionMatrix * modelViewMatrix * vec4(newPosition, 1.0);
     }

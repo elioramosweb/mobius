@@ -50,7 +50,7 @@ vec3 concentrico(vec2 st, vec2 offset, int inx, float rad, in vec3 color) {
 }
 
 void main() {
-  vec3 color = vec3(0.25);
+  vec3 color = vec3(0.0);
   vec2 st = vUv * 0.2;
 
   for (int i = 0; i < 8; i++) {
@@ -59,7 +59,7 @@ void main() {
       0.5 * random(float(i) * 12346.0)
     );
 
-    float ruido = snoise(st * 10.0 + uTime * 0.1 - 20.0 * float(i));
+    float ruido = snoise(st * 10.0 + uTime * 0.1 - 10.0 * float(i));
     float r = 0.6 + 0.25 * sin(uTime * 0.5 + float(i) * 1.3);
 
     color = concentrico(st, pos + ruido, i, r, color);

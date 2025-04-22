@@ -131,9 +131,11 @@ export default function SphereWithShader() {
     })
 
     const geometry = useMemo(() => {
-      return new ParametricGeometry(espacioTiempo, 200, 100)
+      const geo = new ParametricGeometry(espacioTiempo, 200, 200)
+      geo.computeVertexNormals()
+      return geo
     }, [])
-  
+
     return (
       <mesh ref={meshRef} geometry={geometry}>
         {/* <meshStandardMaterial color="orange" side={DoubleSide} /> */}
