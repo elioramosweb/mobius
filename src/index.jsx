@@ -13,7 +13,7 @@ root.render(
   <Canvas camera={{ position: [0, 0, 2] }}>
     <ambientLight intensity={0.5} />
     <directionalLight position={[5, 5, 5]} intensity={1} />
-    <Environment files="./hdrs/empty_warehouse_01_4k.hdr" background={false} /> 
+    <Environment files="./hdrs/empty_warehouse_01_4k.hdr" background={true} /> 
     <Scene />
     <OrbitControls />
   </Canvas>

@@ -122,7 +122,7 @@ export default function SphereWithShader() {
   
     useFrame((state) => {
       if (meshRef.current) {
-        // meshRef.current.rotation.y = state.clock.getElapsedTime() * 0.1
+        //meshRef.current.rotation.y = state.clock.getElapsedTime() * 0.1
         // meshRef.current.rotation.x = state.clock.getElapsedTime() * 0.1 
       }
       if (shaderRef.current) {
@@ -131,12 +131,12 @@ export default function SphereWithShader() {
     })
 
     const geometry = useMemo(() => {
-      return new ParametricGeometry(espacioTiempo, 200, 20)
+      return new ParametricGeometry(espacioTiempo, 200, 100)
     }, [])
   
     return (
       <mesh ref={meshRef} geometry={geometry}>
-        <meshStandardMaterial color="orange" side={DoubleSide} />
+        {/* <meshStandardMaterial color="orange" side={DoubleSide} /> */}
         <shaderMaterial
         ref={shaderRef}
         vertexShader={vertexShader}
