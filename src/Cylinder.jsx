@@ -26,25 +26,25 @@ export default function Cylinder() {
     })
 
     const geometry = useMemo(() => {
-      return new THREE.CylinderGeometry(1.32,1.32,2,63,64)
+      return new THREE.CylinderGeometry(1.7,1.7,2.05,64,64)
     }, [])
   
     return (
     <mesh ref={meshRef} geometry={geometry}>
     <meshPhysicalMaterial
-    color="#ffffff"
-    roughness={0}
-    metalness={0}
-    transmission={1}    
-    thickness={0.05}    
-    ior={1.45}          
-    clearcoat={1}       
-    clearcoatRoughness={0}
-    reflectivity={0.5}  
-    side={DoubleSide}
-    transparent={true}
-  />
-</mesh>
+      color="#AAAAAA"
+      roughness={0}
+      metalness={0}
+      transmission={1}        // Mayor transparencia
+      thickness={0.05}       // Más delgado = menos distorsión
+      ior={1.0}               // Índice de refracción como el aire para evitar distorsión
+      clearcoat={1}
+      clearcoatRoughness={0}
+      reflectivity={0.01}     // Bajo para no oscurecer
+      side={DoubleSide}
+      transparent={true}
+    />
+    </mesh>
 
     )
   }

@@ -65,5 +65,7 @@ void main() {
     color = concentrico(st, pos + ruido, i, r, color);
   }
 
+  color *= 2.0;
+
   gl_FragColor = vec4(color, 1.0);
 }

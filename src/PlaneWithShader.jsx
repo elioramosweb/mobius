@@ -27,7 +27,7 @@ function espacioTiempo(u, t, target) {
   u *= Math.PI * 2.0
   t = (t - 0.5) * 2.0 // t ∈ [-1, 1]
 
-  const baseRadius = 0.02
+  const baseRadius = 0.2
   const coneSlope = 1.5
   const t0 = 0.15 // mitad del tubo
 
@@ -153,6 +153,7 @@ export default function SphereWithShader() {
         side={DoubleSide}
         transparent={false}
         wireframe={false}
+        depthWrite={false}
       />
       </mesh>
     )
