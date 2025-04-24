@@ -49,11 +49,15 @@ vec3 concentrico(vec2 st, vec2 offset, int inx, float rad, in vec3 color) {
   return color; 
 }
 
+
 void main() {
   vec3 color = vec3(0.0);
-  vec2 st = vUv * 0.2;
+  vec2 st = vUv*0.2;
 
-  for (int i = 0; i < 8; i++) {
+  float r = length(st);
+  float theta = atan(st.y, st.x);
+
+  for (int i = 0; i < 13; i++) {
     vec2 pos = vec2(
       0.5 * random(float(i) * 26767.0),
       0.5 * random(float(i) * 12346.0)

@@ -2,6 +2,7 @@ import {useRef} from 'react'
 import { useFrame } from '@react-three/fiber'
 import PlaneWithShader from './PlaneWithShader'
 import Cylinder from './Cylinder'
+import SpaceTime from './SpaceTime'
 
 export default function Scene() {
 
@@ -20,8 +21,8 @@ export default function Scene() {
       <mesh position={[0, 0, 0]} rotation={[Math.PI/2,0,0]}>
       <PlaneWithShader />
       </mesh>
-      <mesh position={[0, 0, 0]} rotation={[0,0,0]}>
-      <Cylinder />
+      <mesh position={[0, 0, 0]} rotation={[Math.PI/2,0,0]}>
+      <SpaceTime />
       </mesh>
     </group>
   )
