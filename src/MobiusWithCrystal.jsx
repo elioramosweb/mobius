@@ -9,11 +9,11 @@ import { MeshTransmissionMaterial} from '@react-three/drei'
 
 function mobius(u, t, target) {
   // u ∈ [0, 1], t ∈ [0, 1]
-  u *= Math.PI * 2.0      // ángulo completo
+  u *= Math.PI * 4.0      // ángulo completo
   t = (t - 0.5) * 2       // t ∈ [-1, 1], ancho de la banda
 
   const R = 1.0           // radio del círculo central
-  const w = 2.0           // ancho de la banda
+  const w = 1.0           // ancho de la banda
 
   const x = (R + (w * t / 2) * Math.cos(u / 2)) * Math.cos(u)
   const y = (R + (w * t / 2) * Math.cos(u / 2)) * Math.sin(u)
@@ -43,14 +43,16 @@ export default function MobiusWithCrystal() {
   return (
     <>
       {/* Malla para lanzar sombra */}
-      <mesh geometry={geometry} castShadow receiveShadow ref={shadowRef}>
+      {/* <mesh geometry={geometry} castShadow receiveShadow ref={shadowRef}>
         <meshStandardMaterial color="white" transparent opacity={0} />
-      </mesh>
+      </mesh> */}
 
       {/* Malla con material transparente visual */}
       <mesh geometry={geometry} ref={meshRef}>
-      <MeshTransmissionMaterial color="#EEEEEE" />
+      <MeshTransmissionMaterial 
+       color="#00BBDD" />
       </mesh>
     </>
   )
 }
+

@@ -21,10 +21,10 @@ export default function Scene() {
       {/* <mesh position={[0, 0, 0]} rotation={[Math.PI/2,0,0]}>
       <PlaneWithShader />
       </mesh> */}
-      <mesh position={[0,-3,0]}>
+      {/* <mesh position={[0,-3,0]}>
       <MobiusWithShader/>
-      </mesh>
-      <mesh position={[0, -3, 0]}>
+      </mesh> */}
+      <mesh position={[0, -4, 0]}>
       <MobiusWithCrystal />
       </mesh>
     </group>
