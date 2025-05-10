@@ -4,13 +4,6 @@ precision mediump float;
 #endif
 
 uniform float uTime;
-uniform vec3 uLightDir;
-uniform vec3 uAmbientColor;
-uniform vec3 uDiffuseColor;
-uniform vec3 uSpecularColor;
-uniform float uAmbientIntensity;
-uniform float uSpecularPower;
-
 varying vec3 vNormal;
 varying vec3 vPosition;
 varying vec2 vUv;
@@ -52,7 +45,7 @@ vec3 concentrico(vec2 st, vec2 offset, int inx, float rad, in vec3 color) {
 
 void main() {
   vec3 color = vec3(0.0);
-  vec2 st = vUv*0.2;
+  vec2 st = vUv*0.1;
 
   float r = length(st);
   float theta = atan(st.y, st.x);
@@ -63,13 +56,13 @@ void main() {
       0.5 * random(float(i) * 12346.0)
     );
 
-    float ruido = snoise(st * 10.0 + uTime * 0.1 - 10.0 * float(i));
+    float ruido = snoise(st * 10.0 + uTime * 0. - 10.0 * float(i));
     float r = 0.6 + 0.25 * sin(uTime * 0.5 + float(i) * 1.3);
 
     color = concentrico(st, pos + ruido, i, r, color);
   }
 
-  color *= 2.0;
+  
 
   gl_FragColor = vec4(color, 1.0);
 }

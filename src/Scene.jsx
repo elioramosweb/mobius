@@ -1,8 +1,8 @@
 import {useRef} from 'react'
 import { useFrame } from '@react-three/fiber'
-import PlaneWithShader from './PlaneWithShader'
-import Cylinder from './Cylinder'
-import SpaceTime from './SpaceTime'
+import MobiusWithShader from './MobiusWithShader'
+import MobiusWithCrystal from './MobiusWithCrystal'
+import { OrbitControls,Stage,Gltf } from '@react-three/drei'
 
 export default function Scene() {
 
@@ -18,11 +18,14 @@ export default function Scene() {
 
   return (
     <group ref={groupRef} rotation={[Math.PI/2,Math.PI/2,Math.PI/2]}>
-      <mesh position={[0, 0, 0]} rotation={[Math.PI/2,0,0]}>
+      {/* <mesh position={[0, 0, 0]} rotation={[Math.PI/2,0,0]}>
       <PlaneWithShader />
+      </mesh> */}
+      <mesh position={[0,-3,0]}>
+      <MobiusWithShader/>
       </mesh>
-      <mesh position={[0, 0, 0]} rotation={[Math.PI/2,0,0]}>
-      <SpaceTime />
+      <mesh position={[0, -3, 0]}>
+      <MobiusWithCrystal />
       </mesh>
     </group>
   )

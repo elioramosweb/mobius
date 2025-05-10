@@ -13,20 +13,20 @@ root.render(
   <React.StrictMode>
     <Canvas
       shadows
-      camera={{ position: [0, 1, 3], fov: 50 }}
+      camera={{ position: [0, 2, 3], fov: 50 }}
       gl={{ toneMappingExposure: 1.5 }}
       onCreated={({ gl }) => {
-        gl.setClearColor('#000000') // fondo negro
+        gl.setClearColor('#CCCCCC') // fondo negro
       }}
     >
       {/* Stage reemplaza ambientLight, directionalLight y Environment */}
       <Stage
-        environment="park" // también puedes usar "warehouse", "sunset", etc.
+        environment="studio" // también puedes usar "warehouse", "sunset", etc.
         intensity={0.5}
         contactShadow={{ opacity: 0.4, blur: 2 }}
         adjustCamera={false} // lo dejas en false si estás usando tu propia cámara
       >
-      <Scene />
+      <Scene/>
       </Stage>
       <OrbitControls />
     </Canvas>
